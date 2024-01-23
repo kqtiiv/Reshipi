@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: white;
+}
+
+body {
+    min-height: 100vh;
+    background: black;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 100px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .5s;
+}
+
+.logo {
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.navbar a {
+    position: relative;
+    font-size: 12.8px;
+    font-weight: 400;
+    text-decoration: none;
+    margin-left: 40px;
+    transition: all 1s, margin-left 0ms;
+}
+
+.navbar a::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 0;
+    height: 0.5px;
+    background: white;
+    transition: 1s cubic-bezier(0.19,1,0.22,1);
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+
+#menu-icon {
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 750px) {
+    header {
+        padding: 10px 5%;
+        transition: .5s;
+    }
+    #menu-icon {
+        display: block;
+    }
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: 5%;
+        border-radius: 10px;
+        border: rgb(255, 255, 255) solid 1px;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px 30px;
+        gap: 10px;
+        transition: all .5s, border-radius 0ms;
+        display: none;
+    }
+
+    .navbar a {
+        margin: 0;
+    }
+
+    .navbar.open {
+        display: flex;
+    }
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 100px;
+    background: transparent;
+    font-size: 12.8px;
+    font-weight: 400;
+}
+
+footer .socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding-bottom: 25px;
+    gap: 25px;
+}
+
+footer .socials a {
+    opacity: 70%;
+    transition: .5s;
+}
+
+footer .socials a:hover {
+    opacity: 100%;
+}
+
+
+footer .links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding-bottom: 25px;
+}
+
+footer .links a {
+    position: relative;
+    text-decoration: none;
+}
+
+footer .links a::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 0;
+    height: 0.5px;
+    background: white;
+    transition: 1s cubic-bezier(0.19,1,0.22,1);
+}
+
+footer .links a:hover::before {
+    width: 100%;
+}
+
+footer .copyright {
+    text-align: center;
+    padding-bottom: 15px;
+    opacity: 70%;
+}
