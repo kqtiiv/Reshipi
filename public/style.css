@@ -11,6 +11,17 @@ body {
     background: black;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.56);
+    border-radius: 10px;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -163,6 +174,7 @@ footer .copyright {
 
     #hero-img {
         height: clamp(250px, calc(50vw), 350px);
+        margin-top: 20px;
     }
 
     #hero-text h1 {
@@ -172,9 +184,7 @@ footer .copyright {
     #hero-text p {
         font-size: 1rem;
     }
-}
 
-@media (max-width: 750px) {
     header {
         padding: 10px 5%;
         transition: .5s;
