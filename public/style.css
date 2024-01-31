@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -22,6 +22,13 @@ header {
     justify-content: space-between;
     align-items: center;
     transition: .5s;
+    z-index: 300;
+    transition: background-color 300ms linear;
+}
+
+.nav-solid {
+    background-color: black !important;
+    transition: background-color 300ms linear;
 }
 
 .logo {
@@ -59,43 +66,9 @@ header {
     display: none;
 }
 
-@media (max-width: 750px) {
-    header {
-        padding: 10px 5%;
-        transition: .5s;
-    }
-    #menu-icon {
-        display: block;
-    }
-    .navbar {
-        position: absolute;
-        top: 100%;
-        right: 5%;
-        border-radius: 10px;
-        border: rgb(255, 255, 255) solid 1px;
-        align-items: center;
-        flex-direction: column;
-        padding: 20px 30px;
-        gap: 10px;
-        transition: all .5s, border-radius 0ms;
-        display: none;
-    }
-
-    .navbar a {
-        margin: 0;
-    }
-
-    .navbar.open {
-        display: flex;
-    }
-}
-
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100%;
-    padding: 10px 100px;
+    padding: 25px 100px;
     background: transparent;
     font-size: 12.8px;
     font-weight: 400;
@@ -150,6 +123,86 @@ footer .links a:hover::before {
 
 footer .copyright {
     text-align: center;
-    padding-bottom: 15px;
     opacity: 70%;
+}
+
+.container {
+    padding: 30px 100px;
+    display: flex;
+}
+
+#hero-img {
+    height: clamp(200px, calc(25vw), 400px);
+    filter: drop-shadow(0 0 clamp(100px, calc(10vw), 200px) #fdfcfc9f);
+}
+
+#hero-text h1 {
+    font-size: clamp(1.13rem, calc(1rem + 2vw), 4rem);
+    margin-bottom: 10px;
+}
+
+#hero-text p {
+    font-size: clamp(0.9rem, calc(0.4rem + 1vw), 2rem);
+}
+
+.hero {
+    display: flex;
+    padding: 120px 100px;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+@media (max-width: 750px) {
+    .hero {
+        padding: 10% 5%;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #hero-img {
+        height: clamp(250px, calc(50vw), 350px);
+    }
+
+    #hero-text h1 {
+        font-size: clamp(1rem, calc(1rem + 3vw), 2.5rem);
+    }
+    
+    #hero-text p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 750px) {
+    header {
+        padding: 10px 5%;
+        transition: .5s;
+    }
+    #menu-icon {
+        display: block;
+    }
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: 5%;
+        border-radius: 10px;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px 30px;
+        gap: 10px;
+        background-color: #b01818e7;
+        border: rgb(184, 126, 126) solid .5px;
+        filter: drop-shadow(0px 0px 10px #d59696);
+        transition: all .5s, border-radius 0ms;
+        display: none;
+    }
+
+    .navbar a {
+        margin: 0;
+    }
+
+    .navbar.open {
+        display: flex;
+    }
 }
