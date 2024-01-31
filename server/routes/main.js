@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const axios = require('axios');
 
+const edamamAPI_URL = "https://api.edamam.com/api/recipes/v2";
+const edamamAppKey = process.env.EDAMAM_APP_KEY;
+const edamamAppID = process.env.EDAMAM_APP_ID;
+
 router.get("/", (req, res) => {
     const data = {
         title: "Home",
