@@ -11,6 +11,20 @@ body {
     background: black;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+select,
+textarea {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.3rem 0.75rem;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 8px;
@@ -20,6 +34,10 @@ body {
 ::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.56);
     border-radius: 10px;
+}
+
+#nav-search {
+    
 }
 
 header {
@@ -48,6 +66,11 @@ header {
     font-weight: 700;
 }
 
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
 .navbar a {
     position: relative;
     font-size: 12.8px;
@@ -55,6 +78,44 @@ header {
     text-decoration: none;
     margin-left: 40px;
     transition: all 1s, margin-left 0ms;
+}
+
+.navbar form {
+    display: flex;
+    margin-left: 40px;
+}
+
+.navbar #nav-search {
+    border-radius: 50px;
+    border-width: 0;
+    font-size: .8rem;
+    color: black;
+    padding: .3rem 0.75rem!important;
+}
+
+.navbar #nav-search-btn {
+    border: none;
+    background: transparent;
+    padding: 0px 10px;
+}
+
+.navbar #nav-search-btn svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar #nav-search-btn svg path {
+    stroke: white;
+    stroke-width: .9px;
+}
+
+.btn {
+    border-radius: 50px;
+}
+
+.btn:hover {
+    cursor: pointer;
 }
 
 .navbar a::before {
@@ -210,9 +271,18 @@ footer .copyright {
 
     .navbar a {
         margin: 0;
+        font-size: 1rem;
+    }
+
+    .navbar a::before {
+        top: 25px;
     }
 
     .navbar.open {
         display: flex;
+    }
+
+    .navbar form {
+        margin: 0;
     }
 }
