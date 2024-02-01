@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Results for: <%= searchNoSpecialChar %></h1>
+
+    <ul class="recipe-ul">
+        <% for( let recipe of data ) { %>
+            <li>
+                <a href="/recipe/<%= recipe._id %>">
+                    <img src=<%= recipe.recipe.image %> />
+                    <span><%= recipe.recipe.label %></span>
+                    <span>Searves: <%= recipe.yield %></span>
+                    <% recipe.recipe.dietLabels.forEach(label => { %>
+                        <span><%= label %></span>
+                    <% }) %>
+                    <% recipe.recipe.healthLabels.forEach(label => { %>
+                        <span><%= label %></span>
+                    <% }) %>
+                </a>
+            </li>
+
+
+        <% }; %>
+    </ul>
+</div>
