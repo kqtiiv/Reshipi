@@ -30,16 +30,23 @@ router.post("/search", async (req, res) => {
       const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "");
 
       const response = await axios.get(edamamAPI_URL + "?q=" + searchNoSpecialChar, config);
-      const data = response.data.hits
+      const results = response.data;
+      const data = results.hits
       .slice((page - 1) * numDisplayed, page * numDisplayed);
+
+      const count = results.count;
+      const nextPage = parseInt(page) + 1;
+      const hasNextPage = nextPage <= Math.ceil(count / numDisplayed);
 
       res.render("search", {
           data,
           title,
-          searchNoSpecialChar
+          searchNoSpecialChar,
+          current: page,
+          nextPage: hasNextPage ? nextPage : null
       });
   } catch (error) {
-      console.log(error.response.data);
+      console.log(error);
       res.render("search", { content: JSON.stringify(error.response.status), title: "Error"});
   }
 });
