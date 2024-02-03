@@ -277,13 +277,30 @@ h1 {
     font-weight: 700;
 }
 
+.subtext-padding {
+    padding-bottom: 20px;
+}
+
 .diet-labels {
     display: flex;
     flex-wrap: wrap;
     color: var(--grey);
 }
 
-#hero-img {
+.labels {
+    height: 100px;
+    overflow: scroll;
+    width: 50%;
+    &::-webkit-scrollbar {
+        width: 0px;
+    }
+}
+
+.ingredients {
+    padding-left: 20px;
+}
+
+.big-img {
     height: clamp(200px, calc(25vw), 400px);
     filter: drop-shadow(0 0 clamp(100px, calc(10vw), 200px) var(--trans-grey));
 }
@@ -306,9 +323,39 @@ h1 {
     gap: 40px;
 }
 
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.page-link {
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    border-radius: 30px;
+    padding: 5px 20px;
+    transition: filter .5s, transform .5s;
+    cursor: pointer;
+}
+
+.page-link:hover {
+    filter: drop-shadow(0 0 clamp(10px, calc(10vw), 20px) var(--light-pink));
+    transform: scale(1.04);
+    transition: all .5s;
+}
+
 .container {
     padding: 100px;
     gap: 40px;
+}
+
+.wrapper {
+    padding-top: 30px;
+}
+
+.nutrients {
+    width: 50%;
 }
 
 @media (max-width: 900px) {
@@ -318,7 +365,7 @@ h1 {
         flex-direction: column;
     }
 
-    #hero-img {
+    .big-img {
         height: clamp(250px, calc(50vw), 350px);
     }
 

@@ -23,27 +23,17 @@ router.get("/", (req, res) => {
 router.post("/search", async (req, res) => {
   try {
       const title = "Search";
-      let numDisplayed = 30;
-      let page = req.query.page || 1;
 
       let searchTerm = req.body.searchTerm;
       const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "");
 
       const response = await axios.get(edamamAPI_URL + "?q=" + searchNoSpecialChar, config);
-      const results = response.data;
-      const data = results.hits
-      .slice((page - 1) * numDisplayed, page * numDisplayed);
-
-      const count = results.count;
-      const nextPage = parseInt(page) + 1;
-      const hasNextPage = nextPage <= Math.ceil(count / numDisplayed);
+      const data = response.data.hits;
 
       res.render("search", {
           data,
           title,
-          searchNoSpecialChar,
-          current: page,
-          nextPage: hasNextPage ? nextPage : null
+          searchNoSpecialChar
       });
   } catch (error) {
       console.log(error);
@@ -54,10 +44,15 @@ router.post("/search", async (req, res) => {
 router.get("/recipe/:id", async (req, res) => {
   try {
       let slug = req.params.id; // grab the id
-      console.log(slug);
-      // const data = await Post.findById( { _id: slug } );
-      // const title = data.title;
-      res.render("post", {title, data})
+      const response = await axios.get(edamamAPI_URL + "/" + slug, config);
+      const data = response.data.recipe;
+      const title = data.label;
+      const type = data.cuisineType[0].replace(
+        /\w\S*/g,
+        function(txt) {
+          return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        });
+      res.render("recipe", {title, data, type});
   } catch (error) {
       console.log(error);
   }

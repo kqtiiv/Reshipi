@@ -7,7 +7,7 @@
         <ul class="recipe-ul">
             <% for( let recipe of data ) { %>
                 <li>
-                    <a href="/recipe/<%= recipe._id %>">
+                    <a href="/recipe/<%= recipe.recipe.uri.split("#")[1] %>">
                         <div class="recipe-card">
                             <img class="recipe-img" src=<%= recipe.recipe.image %> />
                             <div class="recipe-text">
@@ -25,14 +25,13 @@
                         </div>
                     </a>
                 </li>
-            <% }; %>
+            <% } %>
         </ul>
-        
 
     <% } else { %>
         <div class="error-page">
             <h1 class="error-message">Error <%= content %></h1>
-            <img class="error-img" src="/images/Crying-Cat-Error-Img.png"/>
+            <img class="error-img" src="/images/Crying-Cat-Error-Img.png" alt="crying cat"/>
         </div>
     <% } %>
 </div>

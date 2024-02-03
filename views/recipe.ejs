@@ -1,0 +1,57 @@
+<div class="container">
+    <h1><%= title %></h1>
+    <p class="subtext subtext-padding"><%= type %>, <a href=<%= data.url %> target="blank"><%= data.source %></a></p>
+    <img class="big-img" src=<%= data.image %> />
+    <p class="subtext subtext-padding">Serves: <%= data.yield %></p>
+    <h3>Diet Labels</h3>
+    <div class="labels">
+        <ul>
+            <% for( let label of data.dietLabels ) { %>
+                <li><%= label %></li>
+            <% } %>
+        </ul>
+        <ul>
+            <% for( let label of data.healthLabels ) { %>
+                <li><%= label %></li>
+            <% } %>
+        </ul>
+    </div>
+    <div class="wrapper">
+        <h2>Ingredients</h2>
+        <ul class="ingredients">
+            <% for (let ingredient of data.ingredientLines) { %>
+                <li><%= ingredient %></li>
+            <% } %>
+        </ul>
+    </div>
+    <div class="wrapper">
+        <h2>Nutritional Values</h2>
+        <table class="nutrients">
+            <tr>
+                <td>Calories</td>
+                <td><%= Math.floor(data.calories) %>kcal</td>
+            </tr>
+            <tr>
+                <td>Fat</td>
+                <td><%= Math.floor(data.totalNutrients.FAT.quantity) %>g</td>
+            </tr>
+            <tr>
+                <td>Carbohydrates</td>
+                <td><%= Math.floor(data.totalNutrients.CHOCDF.quantity) %>g</td>
+            </tr>
+            <tr>
+                <td>Sugar</td>
+                <td><%= Math.floor(data.totalNutrients.SUGAR.quantity) %>g</td>
+            </tr>
+            <tr>
+                <td>Fibre</td>
+                <td><%= Math.floor(data.totalNutrients.FIBTG.quantity) %>g</td>
+            </tr>
+            <tr>
+                <td>Protein</td>
+                <td><%= Math.floor(data.totalNutrients.PROCNT.quantity) %>g</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
