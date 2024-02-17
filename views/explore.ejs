@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Explore saved recipes</h1>
+    <ul class="recipe-ul">
+        <% for( let recipe of recipes ) { %>
+            <li>
+                <a href="/recipe/<%= recipe.id %>">
+                    <div class="recipe-card">
+                        <img class="recipe-img" src=<%= recipe.image %> />
+                        <h2><%= recipe.title %></h2>
+                        <p class="subtext"><%= recipe.type %></p>
+                    </div>
+                </a>
+            </li>
+        <% } %>
+    </ul>
+</div>

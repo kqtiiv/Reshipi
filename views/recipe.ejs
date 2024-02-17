@@ -1,7 +1,12 @@
 <div class="container">
-    <h1><%= title %></h1>
+    <div class="row">
+        <h1><%= title %></h1>
+        <form action="/save" method="POST">
+            <button class="save" role="submit"></button>
+        </form>
+    </div>
     <p class="subtext subtext-padding"><%= type %>, <a href=<%= data.url %> target="blank"><%= data.source %></a></p>
-    <img class="big-img" src=<%= data.image %> />
+    <img class="big-img" src=<%= image %> />
     <p class="subtext subtext-padding">Serves: <%= data.yield %></p>
     <h3>Diet Labels</h3>
     <div class="labels">
@@ -53,5 +58,4 @@
             </tr>
         </table>
     </div>
-
 </div>
